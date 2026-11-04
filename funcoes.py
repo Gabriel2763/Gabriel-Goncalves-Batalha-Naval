@@ -13,9 +13,19 @@ def preenche_frota(frota, nome_navio, linha, coluna, orientacao, tamanho):
         frota[nome_navio] = []
     frota[nome_navio].append(posicoes)
     return frota
+
 def faz_jogada(tabuleiro, linha, coluna):
     if tabuleiro[linha][coluna] == 1:
         tabuleiro[linha][coluna] = "X"
     else:
         tabuleiro[linha][coluna] = "-"
     return tabuleiro
+
+def posiciona_frota(frota):
+    tabuleiro = [[0] * 10 for _ in range(10)]
+    for navios in frota.values():
+        for navio in navios:
+            for linha, coluna in navio:
+                tabuleiro[linha][coluna] = 1
+    return tabuleiro
+
